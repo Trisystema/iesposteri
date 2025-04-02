@@ -1,0 +1,15 @@
+.zoomDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    color: var(--secondary-color);
+    font-size: 40pt;
+  }
+  
+  .zoomDetails p {
+    text-align: center;
+    color: var(--secondary-color);
+    font-family: 'Helvetica', sans-serif;
+    font-size: 15pt;
+  }

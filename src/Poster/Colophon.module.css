@@ -1,0 +1,33 @@
+
+.colophon {
+    padding: 1%;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f5f5;
+    overflow: hidden;
+}
+
+.colophonRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.colophonLeft,
+.colophonRight {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1rem;
+    font-size: 1rem;
+    font-family: Helvetica, sans-serif;
+    border-bottom: 5px solid #f5f5f5;
+}
+
+.colophonLeft>*,
+.colophonRight>* {
+    padding: 5px;
+    align-items: flex-start;
+}

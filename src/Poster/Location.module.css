@@ -1,0 +1,21 @@
+.location {
+    text-align: center;
+}
+
+.location ul {
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.location li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--secondary-color);
+    font-family: 'Helvetica', sans-serif;
+    font-size: 15pt;
+}

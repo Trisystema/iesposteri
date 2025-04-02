@@ -1,0 +1,28 @@
+.singleLogo {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .singleLogo img {
+    max-width: 100%;
+  }
+  
+  .dualLogo {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .dualImageContainer {
+    width: 100%;
+  }
+  
+  .dualImageContainer img {
+    max-width: 100%;
+  }
+  
