@@ -13,13 +13,14 @@ const ZoomDetails: React.FC<Pick<PosterData, "zlink" | "theme">> = ({ theme, zli
     <div className={styles.zoomDetails}>
       <Presentation />
       <QRCodeSVG
+        id="qr-code"
         value={zlink || 'null'}
         size={128}
         bgColor={colorScheme.bgColor}
         fgColor={colorScheme.fgColor}
         includeMargin={false}
         imageSettings={{
-          src: '/assets/logo_ies_light.png', // ✅ use relative path that works in production
+          src: '/logo_ies_light.png', // ✅ use relative path that works in production
           height: 24,
           width: 24,
           excavate: true

@@ -27,7 +27,7 @@ const FileUpload: React.FC<Pick<PosterFormData, "selectedFile" | "setSelectedFil
 
   const renderPreview = (src: string | null) => {
     if (src) {
-      return <img src={src} alt="preview" className="rounded border max-w-xs mt-2" />;
+      return <img src={src} alt="preview" className="rounded border max-w-xs mt-2"/>;
     }
     return null;
   };

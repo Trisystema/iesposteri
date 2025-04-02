@@ -1,11 +1,13 @@
 import * as React from 'react';
-import * as htmlToImage from 'html-to-image';
 import { Button } from '@/components/ui/button';
+import domtoimage from 'dom-to-image-more';
+
 
 const ExportButton: React.FC = () => {
   const exportAsPicture = async () => {
     const poster = document.querySelector('#export-poster') as HTMLElement;
     if (!poster) return;
+
 
     try {
       // Ensure all images inside are loaded
@@ -19,13 +21,14 @@ const ExportButton: React.FC = () => {
         )
       );
 
-      const dataUrl = await htmlToImage.toPng(poster, {
+      const dataUrl = await domtoimage.toSvg(poster, {
         width: 1600,
         height: 900,
+        copyDefaultStyles: false, // <== here
       });
 
       const link = document.createElement('a');
-      link.download = `poster_${new Date().toISOString().split('T')[0]}.png`;
+      link.download = `poster_${new Date().toISOString().split('T')[0]}.svg`;
       link.href = dataUrl;
       link.click();
     } catch (err) {
@@ -33,7 +36,7 @@ const ExportButton: React.FC = () => {
     }
   };
 
-  return <Button onClick={exportAsPicture}>Export Poster as 1600×900 PNG</Button>;
+  return <Button onClick={exportAsPicture}>сачувај</Button>;
 };
 
 export default ExportButton;

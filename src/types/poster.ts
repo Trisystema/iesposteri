@@ -11,5 +11,6 @@ export interface PosterData {
     content: string;
     selectedFile: string | null;
     coop: string | null;
+    zoom: boolean;
   }
   

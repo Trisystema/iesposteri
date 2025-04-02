@@ -11,5 +11,6 @@ export interface PosterFormData extends PosterData {
     setContent: (val: string) => void;
     setSelectedFile: (file: string | null) => void;
     setCoop: (file: string | null) => void;  
+    setZoom: (val: boolean) => void;
   }
   

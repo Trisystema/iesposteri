@@ -1,6 +1,7 @@
 .zoomDetails {
     display: flex;
     flex-direction: column;
+    gap: 10%;
     align-items: center;
     align-self: center;
     color: var(--secondary-color);
@@ -12,4 +13,5 @@
     color: var(--secondary-color);
     font-family: 'Helvetica', sans-serif;
     font-size: 15pt;
+    margin-bottom: 10%;
   }

@@ -2,8 +2,9 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    justify-content: center;
-    gap: 7%;
+    justify-content: space-between;
+    padding-top: 1%;
+    padding-bottom: 2%;
     width: 20%;
     overflow: hidden;
 }

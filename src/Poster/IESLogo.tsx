@@ -1,6 +1,6 @@
 import React from 'react';
-import lightLogo from '../assets/logo_ies_light.png';
-import darkLogo from '../assets/logo_ies_dark.png';
+import lightLogo from '/logo_ies_light.png';
+import darkLogo from '/logo_ies_dark.png';
 import { PosterData } from '@/types/poster';
 import styles from './IESLogo.module.css';
 

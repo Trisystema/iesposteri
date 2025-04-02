@@ -1,5 +1,5 @@
 import React from 'react'
-import Markdown from 'marked-react';
+import ReactMarkdown from 'react-markdown';
 import Colophon from './Colophon';
 import ContentImage from './ContentImage';
 import Sidebar from './Sidebar';
@@ -20,6 +20,7 @@ const Poster: React.FC<PosterData> = (props) => {
         location={props.location}
         datetime={props.datetime}
         coop={props.coop}
+        zoom={props.zoom}
       />
 
       <div className={styles.body}>
@@ -31,7 +32,9 @@ const Poster: React.FC<PosterData> = (props) => {
 
           <div className={styles.contentContainer}>
             <div className={styles.contentText}>
-              <Markdown value={props.content} />
+              <ReactMarkdown>
+              {props.content}
+              </ReactMarkdown>
             </div>
             <ContentImage selectedFile={props.selectedFile} />
 

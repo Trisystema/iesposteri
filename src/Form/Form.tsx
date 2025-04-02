@@ -11,6 +11,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
+import ExportPoster from '@/Export/ExportPoster'
 
 const Form: React.FC = () => {
     const [theme, setTheme] = useState<'light' | 'dark'>('dark');
@@ -27,6 +28,7 @@ const Form: React.FC = () => {
     const [content, setContent] = useState('');
     const [selectedFile, setSelectedFile] = useState<string | null>(null);
     const [coop, setCoop] = useState<string | null>(null);
+    const [zoom, setZoom] = useState<boolean>(true);
 
     const containerRef = useRef<HTMLDivElement>(null);
     const [scale, setScale] = useState(1);
@@ -63,7 +65,11 @@ const Form: React.FC = () => {
         }
     }, [language]);
 
-    const posterProps: Omit<PosterData, "height" | "width" > = {
+    useEffect(() => {
+        setZoom(zoom)
+    }, [zoom]);
+
+    const posterProps: Omit<PosterData, "height" | "width"> = {
         theme,
         setTheme,
         language,
@@ -76,6 +82,7 @@ const Form: React.FC = () => {
         content,
         selectedFile,
         coop,
+        zoom,
         setTitle,
         setSubtitle,
         setDatetime,
@@ -83,84 +90,83 @@ const Form: React.FC = () => {
         setLocation,
         setContent,
         setSelectedFile,
-        setCoop
+        setCoop,
+        setZoom,
     };
 
     return (
-        <ScrollArea className="w-full h-full p-4 bg-background text-foreground">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4 px-2">
-                <h1 className="text-2xl font-semibold tracking-tight">Генератор постера</h1>
-                <div className="flex items-center gap-2">
-                    <Label htmlFor="app-theme-switch">🌙 Тамни мод</Label>
-                    <Switch
-                        id="app-theme-switch"
-                        checked={appTheme === 'dark'}
-                        onCheckedChange={() => setAppTheme(appTheme === 'light' ? 'dark' : 'light')}
-                    />
-                </div>
-            </div>
-
-            <div className="mb-4 p-4 border rounded-md bg-muted text-muted-foreground text-sm">
-                <strong>Markdown подржан:</strong> У телу вести можеш употребити `**bold**`, `*italic*`, `# Headings`, lists (`- item`) и више. Види <a href="https://www.markdownguide.org/cheat-sheet/"><u>овде</u></a>
-            </div>
-
-            <div className="flex flex-col lg:flex-row gap-6 max-w-screen-xl mx-auto">
-                <div className="flex flex-col gap-6 w-full lg:w-1/2 max-w-full overflow-hidden">
-                    <Card className="p-6 space-y-6 w-full">
-                        <div className="flex flex-col gap-4">
-                            <PosterSettings theme={theme} setTheme={setTheme} language={language} setLanguage={setLanguage} />
-                            <PosterFormInputs {...posterProps} />
-                            <FileUpload selectedFile={selectedFile} setSelectedFile={setSelectedFile} coop={coop} setCoop={setCoop} />
-                            <ExportButton />
-                        </div>
-                    </Card>
+        <div>
+            <ScrollArea className="w-full h-full p-4 bg-background text-foreground">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4 px-2">
+                    <h1 className="text-2xl font-semibold tracking-tight">Генератор постера</h1>
+                    <div className="flex items-center gap-2">
+                        <Label htmlFor="app-theme-switch">🌙 Тамни мод</Label>
+                        <Switch
+                            id="app-theme-switch"
+                            checked={appTheme === 'dark'}
+                            onCheckedChange={() => setAppTheme(appTheme === 'light' ? 'dark' : 'light')}
+                        />
+                    </div>
                 </div>
 
-                <div className="w-full lg:w-1/2 max-w-full overflow-auto flex justify-center items-center">
-                    <Card ref={containerRef} className="overflow-hidden p-4 w-full flex justify-center items-center">
+                <div className="mb-4 p-4 border rounded-md bg-muted text-muted-foreground text-sm">
+                    <strong>Markdown подржан:</strong> У телу вести можеш употребити `**bold**`, `*italic*`, `# Headings`, lists (`- item`) и више. Види <a href="https://www.markdownguide.org/cheat-sheet/"><u>овде</u></a>
+                </div>
+
+                <div className="flex flex-col lg:flex-row gap-6 max-w-screen-xl mx-auto">
+                    <div className="flex flex-col gap-6 w-full lg:w-1/2 max-w-full overflow-hidden">
+                        <Card className="p-6 space-y-6 w-full">
+                            <div className="flex flex-col gap-4">
+                                <PosterSettings theme={theme} setTheme={setTheme} language={language} setLanguage={setLanguage} zoom={zoom} setZoom={setZoom} />
+                                <PosterFormInputs {...posterProps} />
+                                <FileUpload selectedFile={selectedFile} setSelectedFile={setSelectedFile} coop={coop} setCoop={setCoop} />
+                                <ExportButton />
+                            </div>
+                        </Card>
+                    </div>
+
+                    <div className="w-full lg:w-1/2 max-w-full overflow-auto flex justify-center items-center">
                         <Dialog>
                             <DialogTrigger asChild>
-                                <div
-                                    className="relative"
-                                    style={{ width: `${1600 * scale}px`, height: `${900 * scale}px`, overflow: 'hidden' }}
-                                >
+                                <Card ref={containerRef} className="overflow-hidden p-4 w-full flex justify-center items-center cursor-pointer">
                                     <div
-                                        style={{
-                                            width: '1600px',
-                                            height: '900px',
-                                            transform: `scale(${scale})`,
-                                            transformOrigin: 'top left',
-                                        }}
+                                        className="relative"
+                                        style={{ width: `${1600 * scale}px`, height: `${900 * scale}px`, overflow: 'hidden' }}
                                     >
-                                        <Poster {...posterProps} width={1600} height={900} />
+                                        <div
+                                            style={{
+                                                width: '1600px',
+                                                height: '900px',
+                                                transform: `scale(${scale})`,
+                                                transformOrigin: 'top left',
+                                            }}
+                                        >
+                                            <Poster {...posterProps} width={1600} height={900} />
+                                        </div>
                                     </div>
-                                </div>
+                                </Card>
                             </DialogTrigger>
                             <DialogContent
-                                className="max-w-6xl w-full sm:w-auto h-auto bg-background p-6 rounded-xl shadow-lg flex justify-center items-center"
-                                style={{ maxHeight: '90vh' }}
+                                className="bg-background p-0"
+                                style={{
+                                    width: '90vw',
+                                    height: '90vh',
+                                    maxWidth: '1600px',
+                                    maxHeight: '900px',
+                                    margin: 'auto',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                }}
                             >
                                 <Poster {...posterProps} width={1600} height={900} />
                             </DialogContent>
                         </Dialog>
-                    </Card>
+                    </div>
                 </div>
-            </div>
-            {/* hidden component for export */}
-            <div
-                id="export-poster"
-                style={{
-                    position: 'fixed',
-                    top: 0,
-                    left: 0,
-                    visibility: "hidden",
-                    opacity: 0
-                }}
-            >
-                <Poster {...posterProps} width={1600} height={900} />
-            </div>
-        </ScrollArea>
-
+            </ScrollArea>
+            <ExportPoster {...posterProps} width={1600} height={900} />
+        </div>
     );
 };
 
