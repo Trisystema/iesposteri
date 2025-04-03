@@ -11,8 +11,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss(), alias()],
   base: "/iesposteri/",
   resolve: {
-    alias: [
-      { find: '@', replacement: resolve(projectRootDir, "src") },
-    ],
+    alias:
+      { '@': resolve(projectRootDir, "src") },
   },
 })
