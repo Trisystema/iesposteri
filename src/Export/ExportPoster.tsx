@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Poster from '@/Poster/Poster';
 import { PosterFormData as PosterData } from '@/types/posterForm';
 

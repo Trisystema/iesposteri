@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import lightLogo from '/logo_ies_light.png';
 import darkLogo from '/logo_ies_dark.png';
 import { PosterData } from '@/types/poster';

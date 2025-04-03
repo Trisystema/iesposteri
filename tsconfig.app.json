@@ -7,21 +7,13 @@
     "module": "ESNext",
     "skipLibCheck": true,
 
-
-    /* ShadCDN */
-    "baseUrl": ".",
-    "paths": {
-      "@/*": [
-        "./src/*"
-      ]
-    },
-
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "moduleDetection": "force",
     "noEmit": false,
+    "emitDeclarationOnly": true,
     "composite": true,
     "jsx": "react-jsx",
 

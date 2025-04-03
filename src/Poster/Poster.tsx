@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
 import Colophon from './Colophon';
 import ContentImage from './ContentImage';
