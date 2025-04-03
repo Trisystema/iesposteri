@@ -1,6 +1,7 @@
 {
   "include": ["src", "src/types/global.d.ts"],
   "compilerOptions": {
+    "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
