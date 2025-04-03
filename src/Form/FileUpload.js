@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = require("react");
+var jsx_runtime_1 = require("react/jsx-runtime");
 var label_1 = require("@/components/ui/label");
 var input_1 = require("@/components/ui/input");
 var FileUpload = function (_a) {
@@ -71,22 +71,10 @@ var FileUpload = function (_a) {
     }); };
     var renderPreview = function (src) {
         if (src) {
-            return <img src={src} alt="preview" className="rounded border max-w-xs mt-2"/>;
+            return (0, jsx_runtime_1.jsx)("img", { src: src, alt: "preview", className: "rounded border max-w-xs mt-2" });
         }
         return null;
     };
-    return (<div className="file-upload space-y-4">
-      <div>
-        <label_1.Label htmlFor="content-image">Слика</label_1.Label>
-        <input_1.Input id="content-image" type="file" accept="image/*" onChange={function (e) { return handleFileChange(e, setSelectedFile); }}/>
-        {renderPreview(selectedFile)}
-      </div>
-
-      <div>
-        <label_1.Label htmlFor="coop-image">Коорганизатор</label_1.Label>
-        <input_1.Input id="coop-image" type="file" accept="image/*" onChange={function (e) { return handleFileChange(e, setCoop); }}/>
-        {renderPreview(coop)}
-      </div>
-    </div>);
+    return ((0, jsx_runtime_1.jsxs)("div", { className: "file-upload space-y-4", children: [(0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)(label_1.Label, { htmlFor: "content-image", children: "\u0421\u043B\u0438\u043A\u0430" }), (0, jsx_runtime_1.jsx)(input_1.Input, { id: "content-image", type: "file", accept: "image/*", onChange: function (e) { return handleFileChange(e, setSelectedFile); } }), renderPreview(selectedFile)] }), (0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsx)(label_1.Label, { htmlFor: "coop-image", children: "\u041A\u043E\u043E\u0440\u0433\u0430\u043D\u0438\u0437\u0430\u0442\u043E\u0440" }), (0, jsx_runtime_1.jsx)(input_1.Input, { id: "coop-image", type: "file", accept: "image/*", onChange: function (e) { return handleFileChange(e, setCoop); } }), renderPreview(coop)] })] }));
 };
 exports.default = FileUpload;

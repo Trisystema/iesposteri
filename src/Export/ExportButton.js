@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = require("react");
+var jsx_runtime_1 = require("react/jsx-runtime");
 var button_1 = require("@/components/ui/button");
 var dom_to_image_more_1 = require("dom-to-image-more");
 var ExportButton = function () {
@@ -82,6 +82,6 @@ var ExportButton = function () {
             }
         });
     }); };
-    return <button_1.Button onClick={exportAsPicture}>сачувај</button_1.Button>;
+    return (0, jsx_runtime_1.jsx)(button_1.Button, { onClick: exportAsPicture, children: "\u0441\u0430\u0447\u0443\u0432\u0430\u0458" });
 };
 exports.default = ExportButton;

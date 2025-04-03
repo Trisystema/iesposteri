@@ -1,5 +1,17 @@
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+var jsx_runtime_1 = require("react/jsx-runtime");
 // src/form/Form.tsx
 var react_1 = require("react");
 var Poster_1 = require("@/Poster/Poster");
@@ -87,65 +99,20 @@ var Form = function () {
         setCoop: setCoop,
         setZoom: setZoom,
     };
-    return (<div>
-            <scroll_area_1.ScrollArea className="w-full h-full p-4 bg-background text-foreground">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4 px-2">
-                    <h1 className="text-2xl font-semibold tracking-tight">Генератор постера</h1>
-                    <div className="flex items-center gap-2">
-                        <label_1.Label htmlFor="app-theme-switch">🌙 Тамни мод</label_1.Label>
-                        <switch_1.Switch id="app-theme-switch" checked={appTheme === 'dark'} onCheckedChange={function () { return setAppTheme(appTheme === 'light' ? 'dark' : 'light'); }}/>
-                    </div>
-                </div>
-
-                <div className="mb-4 p-4 border rounded-md bg-muted text-muted-foreground text-sm">
-                    <strong>Markdown подржан:</strong> У телу вести можеш употребити `**bold**`, `*italic*`, `# Headings`, lists (`- item`) и више. Види <a href="https://www.markdownguide.org/cheat-sheet/"><u>овде</u></a>
-                </div>
-
-                <div className="flex flex-col lg:flex-row gap-6 max-w-screen-xl mx-auto">
-                    <div className="flex flex-col gap-6 w-full lg:w-1/2 max-w-full overflow-hidden">
-                        <card_1.Card className="p-6 space-y-6 w-full">
-                            <div className="flex flex-col gap-4">
-                                <PosterSettings_1.default theme={theme} setTheme={setTheme} language={language} setLanguage={setLanguage} zoom={zoom} setZoom={setZoom}/>
-                                <PosterInputs_1.default {...posterProps}/>
-                                <FileUpload_1.default selectedFile={selectedFile} setSelectedFile={setSelectedFile} coop={coop} setCoop={setCoop}/>
-                                <ExportButton_1.default />
-                            </div>
-                        </card_1.Card>
-                    </div>
-
-                    <div className="w-full lg:w-1/2 max-w-full overflow-auto flex justify-center items-center">
-                        <dialog_1.Dialog>
-                            <dialog_1.DialogTrigger asChild>
-                                <card_1.Card ref={containerRef} className="overflow-hidden p-4 w-full flex justify-center items-center cursor-pointer">
-                                    <div className="relative" style={{ width: "".concat(1600 * scale, "px"), height: "".concat(900 * scale, "px"), overflow: 'hidden' }}>
-                                        <div style={{
-            width: '1600px',
-            height: '900px',
-            transform: "scale(".concat(scale, ")"),
-            transformOrigin: 'top left',
-        }}>
-                                            <Poster_1.default {...posterProps} width={1600} height={900}/>
-                                        </div>
-                                    </div>
-                                </card_1.Card>
-                            </dialog_1.DialogTrigger>
-                            <dialog_1.DialogContent className="bg-background p-0" style={{
-            width: '90vw',
-            height: '90vh',
-            maxWidth: '1600px',
-            maxHeight: '900px',
-            margin: 'auto',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-        }}>
-                                <Poster_1.default {...posterProps} width={1600} height={900}/>
-                            </dialog_1.DialogContent>
-                        </dialog_1.Dialog>
-                    </div>
-                </div>
-            </scroll_area_1.ScrollArea>
-            <ExportPoster_1.default {...posterProps} width={1600} height={900}/>
-        </div>);
+    return ((0, jsx_runtime_1.jsxs)("div", { children: [(0, jsx_runtime_1.jsxs)(scroll_area_1.ScrollArea, { className: "w-full h-full p-4 bg-background text-foreground", children: [(0, jsx_runtime_1.jsxs)("div", { className: "flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4 px-2", children: [(0, jsx_runtime_1.jsx)("h1", { className: "text-2xl font-semibold tracking-tight", children: "\u0413\u0435\u043D\u0435\u0440\u0430\u0442\u043E\u0440 \u043F\u043E\u0441\u0442\u0435\u0440\u0430" }), (0, jsx_runtime_1.jsxs)("div", { className: "flex items-center gap-2", children: [(0, jsx_runtime_1.jsx)(label_1.Label, { htmlFor: "app-theme-switch", children: "\uD83C\uDF19 \u0422\u0430\u043C\u043D\u0438 \u043C\u043E\u0434" }), (0, jsx_runtime_1.jsx)(switch_1.Switch, { id: "app-theme-switch", checked: appTheme === 'dark', onCheckedChange: function () { return setAppTheme(appTheme === 'light' ? 'dark' : 'light'); } })] })] }), (0, jsx_runtime_1.jsxs)("div", { className: "mb-4 p-4 border rounded-md bg-muted text-muted-foreground text-sm", children: [(0, jsx_runtime_1.jsx)("strong", { children: "Markdown \u043F\u043E\u0434\u0440\u0436\u0430\u043D:" }), " \u0423 \u0442\u0435\u043B\u0443 \u0432\u0435\u0441\u0442\u0438 \u043C\u043E\u0436\u0435\u0448 \u0443\u043F\u043E\u0442\u0440\u0435\u0431\u0438\u0442\u0438 `**bold**`, `*italic*`, `# Headings`, lists (`- item`) \u0438 \u0432\u0438\u0448\u0435. \u0412\u0438\u0434\u0438 ", (0, jsx_runtime_1.jsx)("a", { href: "https://www.markdownguide.org/cheat-sheet/", children: (0, jsx_runtime_1.jsx)("u", { children: "\u043E\u0432\u0434\u0435" }) })] }), (0, jsx_runtime_1.jsxs)("div", { className: "flex flex-col lg:flex-row gap-6 max-w-screen-xl mx-auto", children: [(0, jsx_runtime_1.jsx)("div", { className: "flex flex-col gap-6 w-full lg:w-1/2 max-w-full overflow-hidden", children: (0, jsx_runtime_1.jsx)(card_1.Card, { className: "p-6 space-y-6 w-full", children: (0, jsx_runtime_1.jsxs)("div", { className: "flex flex-col gap-4", children: [(0, jsx_runtime_1.jsx)(PosterSettings_1.default, { theme: theme, setTheme: setTheme, language: language, setLanguage: setLanguage, zoom: zoom, setZoom: setZoom }), (0, jsx_runtime_1.jsx)(PosterInputs_1.default, __assign({}, posterProps)), (0, jsx_runtime_1.jsx)(FileUpload_1.default, { selectedFile: selectedFile, setSelectedFile: setSelectedFile, coop: coop, setCoop: setCoop }), (0, jsx_runtime_1.jsx)(ExportButton_1.default, {})] }) }) }), (0, jsx_runtime_1.jsx)("div", { className: "w-full lg:w-1/2 max-w-full overflow-auto flex justify-center items-center", children: (0, jsx_runtime_1.jsxs)(dialog_1.Dialog, { children: [(0, jsx_runtime_1.jsx)(dialog_1.DialogTrigger, { asChild: true, children: (0, jsx_runtime_1.jsx)(card_1.Card, { ref: containerRef, className: "overflow-hidden p-4 w-full flex justify-center items-center cursor-pointer", children: (0, jsx_runtime_1.jsx)("div", { className: "relative", style: { width: "".concat(1600 * scale, "px"), height: "".concat(900 * scale, "px"), overflow: 'hidden' }, children: (0, jsx_runtime_1.jsx)("div", { style: {
+                                                            width: '1600px',
+                                                            height: '900px',
+                                                            transform: "scale(".concat(scale, ")"),
+                                                            transformOrigin: 'top left',
+                                                        }, children: (0, jsx_runtime_1.jsx)(Poster_1.default, __assign({}, posterProps, { width: 1600, height: 900 })) }) }) }) }), (0, jsx_runtime_1.jsx)(dialog_1.DialogContent, { className: "bg-background p-0", style: {
+                                                width: '90vw',
+                                                height: '90vh',
+                                                maxWidth: '1600px',
+                                                maxHeight: '900px',
+                                                margin: 'auto',
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                                alignItems: 'center',
+                                            }, children: (0, jsx_runtime_1.jsx)(Poster_1.default, __assign({}, posterProps, { width: 1600, height: 900 })) })] }) })] })] }), (0, jsx_runtime_1.jsx)(ExportPoster_1.default, __assign({}, posterProps, { width: 1600, height: 900 }))] }));
 };
 exports.default = Form;

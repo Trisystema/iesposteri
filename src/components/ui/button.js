@@ -1,4 +1,15 @@
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __rest = (this && this.__rest) || function (s, e) {
     var t = {};
     for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
@@ -13,7 +24,7 @@ var __rest = (this && this.__rest) || function (s, e) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.buttonVariants = void 0;
 exports.Button = Button;
-var React = require("react");
+var jsx_runtime_1 = require("react/jsx-runtime");
 var react_slot_1 = require("@radix-ui/react-slot");
 var class_variance_authority_1 = require("class-variance-authority");
 var utils_1 = require("@/lib/utils");
@@ -43,5 +54,5 @@ exports.buttonVariants = buttonVariants;
 function Button(_a) {
     var className = _a.className, variant = _a.variant, size = _a.size, _b = _a.asChild, asChild = _b === void 0 ? false : _b, props = __rest(_a, ["className", "variant", "size", "asChild"]);
     var Comp = asChild ? react_slot_1.Slot : "button";
-    return (<Comp data-slot="button" className={(0, utils_1.cn)(buttonVariants({ variant: variant, size: size, className: className }))} {...props}/>);
+    return ((0, jsx_runtime_1.jsx)(Comp, __assign({ "data-slot": "button", className: (0, utils_1.cn)(buttonVariants({ variant: variant, size: size, className: className })) }, props)));
 }

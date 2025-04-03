@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var jsx_runtime_1 = require("react/jsx-runtime");
 var react_1 = require("react");
 var ContentImage_module_css_1 = require("./ContentImage.module.css");
 var ContentImage = function (_a) {
@@ -13,8 +14,6 @@ var ContentImage = function (_a) {
             setImageUrl('/placeholder_person.jpg');
         }
     }, [selectedFile]);
-    return (<div className={ContentImage_module_css_1.default.contentImage}>
-      <img src={imageUrl} alt="CONTENT"/>
-    </div>);
+    return ((0, jsx_runtime_1.jsx)("div", { className: ContentImage_module_css_1.default.contentImage, children: (0, jsx_runtime_1.jsx)("img", { src: imageUrl, alt: "CONTENT" }) }));
 };
 exports.default = ContentImage;
