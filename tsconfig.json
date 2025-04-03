@@ -4,7 +4,7 @@
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
   ],
-  "include": ["src", "src/types/global.d.ts"],
+  "include": ["src", "src/types/global.d.ts", "src/types/domToImageMore.d.ts"],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
