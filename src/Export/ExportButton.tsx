@@ -21,14 +21,14 @@ const ExportButton: React.FC = () => {
         )
       );
 
-      const dataUrl = await domtoimage.toPng(poster, {
+      const dataUrl = await domtoimage.toSvg(poster, {
         width: 1600,
         height: 900,
         copyDefaultStyles: false, // <== here
       });
 
       const link = document.createElement('a');
-      link.download = `poster_${new Date().toISOString().split('T')[0]}.png`;
+      link.download = `poster_${new Date().toISOString().split('T')[0]}.svg`;
       link.href = dataUrl;
       link.click();
     } catch (err) {
